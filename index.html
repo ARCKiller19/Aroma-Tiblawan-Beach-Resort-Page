@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ceb-PH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aroma Tiblawan Beach Resort — An affordable coastal escape in Governor Generoso, Davao Oriental. No corkage, free charcoal, family-friendly." />
+  <title>Aroma Tiblawan Beach Resort — Governor Generoso, Davao Oriental</title>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="assets/images/LOGO.jpg" type="image/jpeg" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/styles/main.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ── Hero image background ── */
+    .hero-bg {
+      background-image: url('assets/images/Light/Beach 1.JPG');
+    }
+
+    /* ── Amenities feature layout ── */
+    .amenities-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--gap-md);
+      margin-bottom: 0;
+    }
+
+    /* ── Gallery section label ── */
+    .gallery-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--gap-md) var(--gap-md) var(--gap-sm);
+      background: var(--sand-dark);
+    }
+
+    /* ── Accom preview header ── */
+    .accoms-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--gap-md);
+      margin-bottom: 0;
+    }
+
+    /* ── Location Strip ── */
+    #location-strip {
+      background: #fff;
+      padding: var(--gap-lg) 0;
+      border-top: 1px solid var(--sand-dark);
+      border-bottom: 1px solid var(--sand-dark);
+    }
+
+    .location-inner {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--gap-xl);
+    }
+
+    .location-map-placeholder {
+      flex: 1;
+      min-width: 260px;
+      height: 200px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--sand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.88rem;
+      border: 1px solid var(--sand-mid);
+      position: relative;
+    }
+
+    .location-details {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .location-details h3 {
+      margin-bottom: var(--gap-sm);
+    }
+
+    .location-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+    }
+
+    .location-detail-row .icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+
+    /* ── Quote band ── */
+    #quote-band {
+      background: var(--sand);
+      padding: var(--gap-xl) 0;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 700px;
+      margin: 0 auto var(--gap-sm);
+      line-height: 1.4;
+    }
+
+    .quote-source {
+      font-size: 0.82rem;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Whole resort card special layout */
+    .whole-resort-banner {
+      margin-top: var(--gap-md);
+      background: linear-gradient(135deg, var(--teal-xdark), var(--ocean-surface));
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .whole-resort-img {
+      flex: 0 0 280px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .whole-resort-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      mix-blend-mode: luminosity;
+    }
+
+    .whole-resort-content {
+      flex: 1;
+      min-width: 240px;
+      padding: var(--gap-lg);
+      color: #fff;
+    }
+
+    .whole-resort-badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .whole-resort-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .whole-resort-price {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--teal-light);
+    }
+
+    .whole-resort-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.2rem;
+      margin-bottom: var(--gap-sm);
+    }
+
+    @media (max-width: 560px) {
+      .whole-resort-img { flex: 0 0 100%; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar injected by navbar.js -->
+  <!-- Mobile menu injected by navbar.js -->
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <span class="hero-bisaya" id="hero-bisaya"></span>
+      <h1 class="hero-title" id="hero-title"></h1>
+      <p class="hero-subtitle" id="hero-subtitle"></p>
+      <p class="hero-en" id="hero-en"></p>
+      <div class="hero-ctas" id="hero-ctas"></div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       HIGHLIGHTS BAR
+  ══════════════════════════════════════════ -->
+  <div id="highlights">
+    <div class="highlights-grid" id="highlights-grid"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       GALLERY STRIP
+  ══════════════════════════════════════════ -->
+  <div class="gallery-label container">
+    <span class="section-label">The Resort</span>
+    <a href="accommodations.html" style="font-size:0.85rem;color:var(--teal);font-weight:500;">View Accommodations →</a>
+  </div>
+  <div id="gallery-strip"></div>
+
+  <!-- ══════════════════════════════════════════
+       QUOTE BAND
+  ══════════════════════════════════════════ -->
+  <div id="quote-band">
+    <p class="quote-text reveal">"Pahuway kadyot sa kasaba sa syudad. Dinhi sa Aroma, tagamtama ang kalinaw sa dagat."</p>
+    <span class="quote-source reveal reveal-delay-1">Aroma Tiblawan Beach Resort · Governor Generoso</span>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       AMENITIES
+  ══════════════════════════════════════════ -->
+  <section id="amenities" class="section">
+    <div class="container">
+      <div class="amenities-header">
+        <div>
+          <span class="section-label reveal">What's Included</span>
+          <h2 class="section-title reveal reveal-delay-1">Perks at No Extra Cost</h2>
+          <p class="section-sub reveal reveal-delay-2">We believe a great beach day shouldn't come with hidden fees. Everything your group needs — we've got covered.</p>
+        </div>
+      </div>
+
+      <div class="amenities-grid" id="amenities-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SOCIAL PROOF BAND
+  ══════════════════════════════════════════ -->
+  <div id="proof-band">
+    <div class="container">
+      <p class="proof-band-headline reveal">Trusted by families, barkadas, and event teams</p>
+      <p class="proof-band-sub reveal reveal-delay-1">Across Governor Generoso and the whole Davao Region</p>
+      <div class="proof-stats reveal reveal-delay-2">
+        <div class="proof-stat">
+          <div class="proof-stat-num">50+</div>
+          <div class="proof-stat-label">Pax Capacity</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">5</div>
+          <div class="proof-stat-label">Accommodation Options</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">₱0</div>
+          <div class="proof-stat-label">Corkage Fee</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">24/7</div>
+          <div class="proof-stat-label">Messenger Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ACCOMMODATIONS PREVIEW
+  ══════════════════════════════════════════ -->
+  <section id="accommodations-preview" class="section">
+    <div class="container">
+      <div class="accoms-header">
+        <div>
+          <span class="section-label reveal">Accommodations</span>
+          <h2 class="section-title reveal reveal-delay-1">Find Your Perfect Space</h2>
+          <p class="section-sub reveal reveal-delay-2">Day tours, overnight stays, or an exclusive full-resort experience — we have the right fit for every group and budget.</p>
+        </div>
+        <a href="accommodations.html" class="btn btn-outline reveal reveal-delay-3">View All Rooms</a>
+      </div>
+
+      <div class="accoms-scroll" id="accoms-scroll"></div>
+
+      <!-- Whole Resort Banner -->
+      <div class="whole-resort-banner reveal" id="whole-resort-banner"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LOCATION STRIP
+  ══════════════════════════════════════════ -->
+  <section id="location-strip" class="section-sm">
+    <div class="container">
+      <div class="location-inner">
+        <div class="location-map-placeholder">
+          <div style="text-align:center;padding:1rem;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">📍</div>
+            <div style="font-size:0.85rem;color:var(--text-mid);">Governor Generoso<br>Davao Oriental</div>
+            <a href="https://maps.google.com/?q=Governor+Generoso+Davao+Oriental"
+               target="_blank" rel="noopener"
+               style="display:inline-block;margin-top:0.75rem;font-size:0.8rem;color:var(--teal);font-weight:500;">
+              Open in Maps →
+            </a>
+          </div>
+        </div>
+
+        <div class="location-details">
+          <span class="section-label">Getting Here</span>
+          <h3 class="section-title">Governor Generoso, Davao Oriental</h3>
+
+          <div class="location-detail-row">
+            <span class="icon">🚌</span>
+            <span>Accessible by bus or van from Davao City via Mati. Travel time approximately 3–4 hours.</span>
+          </div>
+          <div class="location-detail-row">
+            <span class="icon">🚗</span>
+            <span>Private vehicle is recommended for the most flexible arrival. Follow signs to Governor Generoso coastal road.</span>
+          </div>
+          <div class="location-detail-row">
+            <span class="icon">📞</span>
+            <span>Call us for exact directions: <strong id="contact-nums"></strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BAND
+  ══════════════════════════════════════════ -->
+  <section id="cta-band">
+    <div class="cta-band-bg" style="background-image: url('assets/images/Dark/Dark 1.JPG');"></div>
+    <div class="container cta-band-content">
+      <p class="section-label" style="color:var(--teal-light);justify-content:center;display:flex;">Ready to Book?</p>
+      <h2 class="cta-band-title reveal">Your coastal escape is waiting.</h2>
+      <p class="cta-band-sub reveal reveal-delay-1">Reserve with a 50% downpayment. No corkage. Bring everything — we handle the rest.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="reveal reveal-delay-2">
+        <a href="booking.html" class="btn btn-primary">Reserve Your Stay</a>
+        <a href="rules.html" class="btn btn-ghost">View House Rules</a>
+      </div>
+      <div class="cta-band-contacts">
+        <div class="cta-contact-item">📞 <a id="cta-contact-1" href="#"></a></div>
+        <div class="cta-contact-item">📞 <a id="cta-contact-2" href="#"></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer id="footer"></footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data/resort-data.js"></script>
+  <script src="scripts/components/navbar.js"></script>
+  <script src="scripts/components/social-proof-toast.js"></script>
+  <script src="scripts/main.js"></script>
+
+  <script>
+    // ── Page-specific Init ──────────────────────────────────
+    function PageInit() {
+      renderHero();
+      renderHighlights();
+      renderGalleryStrip();
+      renderAmenities();
+      renderAccomPreview();
+      renderWholeResortBanner();
+      renderContacts();
+    }
+
+    // ── Hero ────────────────────────────────────────────────
+    function renderHero() {
+      const d = ResortData.hero;
+      document.getElementById('hero-bisaya').textContent = 'Aroma Tiblawan · Governor Generoso, Davao Oriental';
+      document.getElementById('hero-title').innerHTML = `<em>${d.headline}</em>`;
+      document.getElementById('hero-subtitle').textContent = d.subheadline;
+      document.getElementById('hero-en').textContent = d.englishSub;
+
+      const ctas = document.getElementById('hero-ctas');
+      ctas.innerHTML = `
+        <a href="${d.cta.href}" class="btn btn-primary">${d.cta.label}</a>
+        <a href="${d.secondaryCta.href}" class="btn btn-ghost">${d.secondaryCta.label}</a>
+      `;
+    }
+
+    // ── Highlights ──────────────────────────────────────────
+    function renderHighlights() {
+      const grid = document.getElementById('highlights-grid');
+      grid.innerHTML = ResortData.highlights.map(h => `
+        <div class="highlight-item">
+          <span class="highlight-icon">${h.icon}</span>
+          <span class="highlight-label">${h.label}</span>
+          <span class="highlight-sub">${h.sub}</span>
+        </div>
+      `).join('');
+    }
+
+    // ── Gallery Strip ────────────────────────────────────────
+    function renderGalleryStrip() {
+      const strip = document.getElementById('gallery-strip');
+      const images = [
+        { src: ResortData.images.beach2, alt: 'Beach waves at Aroma Tiblawan' },
+        { src: ResortData.images.beach3, alt: 'Rocky shore view' },
+        { src: ResortData.images.beach4, alt: 'Ocean view from resort' },
+        { src: ResortData.images.beach5, alt: 'Waves crashing on rocks' },
+        { src: ResortData.images.dark2,  alt: 'Seabirds over the ocean' },
+      ];
+      strip.innerHTML = images.map(img => `
+        <div class="gallery-cell">
+          <img src="${img.src}" alt="${img.alt}" loading="lazy" />
+        </div>
+      `).join('');
+    }
+
+    // ── Amenities ────────────────────────────────────────────
+    function renderAmenities() {
+      const grid = document.getElementById('amenities-grid');
+      const { complimentary, connectivity, rentals } = ResortData.amenities;
+
+      const categories = [
+        {
+          title: 'Complimentary Perks',
+          icon: '✅',
+          items: complimentary.map(i => ({
+            icon: i.icon,
+            text: i.name,
+            badge: null,
+          })),
+        },
+        {
+          title: 'Connectivity',
+          icon: '📶',
+          items: connectivity.map(i => ({
+            icon: i.icon,
+            text: i.name,
+            badge: null,
+          })),
+        },
+        {
+          title: 'Entertainment Rentals',
+          icon: '🎉',
+          items: rentals.map(i => ({
+            icon: i.icon,
+            text: i.name,
+            badge: i.price,
+          })),
+        },
+      ];
+
+      grid.innerHTML = categories.map((cat, ci) => `
+        <div class="amenity-category reveal reveal-delay-${ci + 1}">
+          <div class="amenity-cat-title">${cat.icon} ${cat.title}</div>
+          <ul class="amenity-list">
+            ${cat.items.map(item => `
+              <li class="amenity-item">
+                <span class="amenity-item-icon">${item.icon}</span>
+                <div>
+                  <span class="amenity-item-text">${item.text}</span>
+                  ${item.badge ? `<div class="amenity-badge">💸 ${item.badge}</div>` : ''}
+                </div>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+
+    // ── Accommodation Preview Cards ──────────────────────────
+    function renderAccomPreview() {
+      const scroll = document.getElementById('accoms-scroll');
+      const cottages = ResortData.accommodations.slice(0, 4);
+
+      scroll.innerHTML = cottages.map(accom => `
+        <a href="accommodations.html#${accom.id}" class="accom-card">
+          <div class="accom-card-img">
+            <img src="${accom.image}" alt="${accom.name}" loading="lazy" />
+            <span class="accom-card-badge">${accom.badge}</span>
+          </div>
+          <div class="accom-card-body">
+            <div class="accom-card-name">${accom.name}</div>
+            <div class="accom-card-pax">👥 Up to ${accom.capacity} pax</div>
+            <div class="accom-rates">
+              <div class="rate-pill">
+                <span class="rate-pill-label">Day Tour</span>
+                <span class="rate-pill-time" style="color:var(--time-color)">${accom.dayTour.time}</span>
+                <span class="rate-pill-price">${formatPHP(accom.dayTour.price)}</span>
+              </div>
+              <div class="rate-pill">
+                <span class="rate-pill-label">Overnight</span>
+                <span class="rate-pill-time" style="color:var(--time-color)">${accom.overnight.time}</span>
+                <span class="rate-pill-price">${formatPHP(accom.overnight.price)}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // ── Whole Resort Banner ──────────────────────────────────
+    function renderWholeResortBanner() {
+      const wr = ResortData.accommodations[4]; // whole resort
+      const banner = document.getElementById('whole-resort-banner');
+      banner.innerHTML = `
+        <div class="whole-resort-img">
+          <img src="${wr.image}" alt="${wr.name}" loading="lazy" />
+        </div>
+        <div class="whole-resort-content">
+          <div class="whole-resort-badge">⭐ ${wr.badge}</div>
+          <div class="whole-resort-title">${wr.name}</div>
+          <div class="whole-resort-price">${formatPHP(wr.flatRate.price)}</div>
+          <div class="whole-resort-sub">Flat rate · ${wr.capacity} pax · Weddings · Reunions · Company Outings</div>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:1rem;">${wr.description}</p>
+          <a href="booking.html" class="btn btn-primary">Inquire Now</a>
+        </div>
+      `;
+    }
+
+    // ── Contact Numbers ──────────────────────────────────────
+    function renderContacts() {
+      const contacts = ResortData.identity.contacts;
+
+      // Location strip
+      const numEl = document.getElementById('contact-nums');
+      if (numEl) numEl.innerHTML = contacts.map(c => `<a href="tel:${c}" style="color:var(--teal)">${c}</a>`).join(' · ');
+
+      // CTA band
+      const c1 = document.getElementById('cta-contact-1');
+      const c2 = document.getElementById('cta-contact-2');
+      if (c1 && contacts[0]) { c1.href = `tel:${contacts[0]}`; c1.textContent = contacts[0]; }
+      if (c2 && contacts[1]) { c2.href = `tel:${contacts[1]}`; c2.textContent = contacts[1]; }
+    }
+  </script>
+
+</body>
+</html>
