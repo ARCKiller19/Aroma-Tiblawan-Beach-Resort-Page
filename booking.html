@@ -989,6 +989,9 @@
     function handleSubmit() {
       const name    = document.getElementById('f-name').value.trim();
       const contact = document.getElementById('f-contact').value.trim();
+      const pax     = document.getElementById('f-pax').value.trim();
+      const type    = document.getElementById('f-type').value;
+      const notes   = document.getElementById('f-notes').value.trim();
       const agreed  = document.getElementById('f-agree').checked;
 
       if (!selectedRoom) { alert('Please choose an accommodation first.'); return; }
@@ -996,8 +999,46 @@
       if (!name || !contact) { alert('Please fill in your name and contact number.'); return; }
       if (!agreed) { alert('Please agree to the house rules before proceeding.'); return; }
 
-      document.getElementById('booking-form').style.display = 'none';
-      document.getElementById('form-confirm').style.display = 'block';
+      // 1. Format the date beautifully
+      const startDateStr = new Date(selectedStart).toLocaleDateString('en-PH', { month: 'long', day: 'numeric', year: 'numeric' });
+      const endDateStr = selectedEnd ? new Date(selectedEnd).toLocaleDateString('en-PH', { month: 'long', day: 'numeric', year: 'numeric' }) : startDateStr;
+      
+      const stayDuration = selectedType === 'day' ? 'Day Tour' : 'Overnight';
+      const dateRange = selectedStart === selectedEnd || !selectedEnd ? startDateStr : `${startDateStr} to ${endDateStr}`;
+
+      // 2. Create the message template
+      const message = `Hello Aroma Tiblawan! I would like to request a booking:
+      
+Name: ${name}
+Contact: ${contact}
+Guests: ${pax} pax
+Event: ${type || 'N/A'}
+
+Accommodation: ${document.getElementById('sum-room').textContent}
+Stay Type: ${stayDuration}
+Date: ${dateRange}
+
+Total Estimated Rate: ${document.getElementById('sum-total').textContent}
+Notes: ${notes || 'None'}`;
+
+      // 3. Copy to Clipboard and Show Confirmation
+      navigator.clipboard.writeText(message).then(() => {
+        // Hide form, show confirmation
+        document.getElementById('booking-form').style.display = 'none';
+        
+        // Update the confirmation text to tell them to paste
+        const confirmDiv = document.getElementById('form-confirm');
+        confirmDiv.style.display = 'block';
+        confirmDiv.innerHTML = `
+          <div class="confirm-icon">🎉</div>
+          <h4>Booking Details Copied!</h4>
+          <p>We have copied your booking details to your clipboard.</p>
+          <p>Click the button below to open Messenger, <strong>PASTE the message</strong>, and hit send!</p>
+          <a href="https://m.me/AromaTiblawan" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:var(--gap-md);width:100%;justify-content:center;">Open Messenger & Paste</a>
+        `;
+      }).catch(err => {
+        alert("Oops! Something went wrong copying your details. Please try again.");
+      });
     }
 
     // Expose revealObserver for inclusions

@@ -1,7 +1,33 @@
 // ============================================================
 // main.js — Page Bootstrap & Shared Utilities
 // ============================================================
+// Inside scripts/main.js
 
+function injectMessengerChat() {
+  // 1. Create the required FB Root div
+  const fbRoot = document.createElement('div');
+  fbRoot.id = 'fb-root';
+  document.body.appendChild(fbRoot);
+
+  // 2. Create the Customer Chat div
+  const chatPlugin = document.createElement('div');
+  chatPlugin.className = 'fb-customerchat';
+  chatPlugin.setAttribute('attribution', 'biz_inbox');
+  chatPlugin.setAttribute('page_id', '101653795811386'); // Replace with your Page ID
+  document.body.appendChild(chatPlugin);
+
+  // 3. Inject the Facebook SDK Script
+  const script = document.createElement('script');
+  script.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+}
+
+// Make sure to call this function when the page initializes!
+document.addEventListener('DOMContentLoaded', () => {
+  injectMessengerChat();
+});
 // ── Format currency (PHP) ────────────────────────────────
 function formatPHP(amount) {
   return `PHP ${Number(amount).toLocaleString('en-PH')}`;
