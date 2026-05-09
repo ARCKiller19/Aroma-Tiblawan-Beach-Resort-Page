@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ceb-PH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book your stay at Aroma Tiblawan Beach Resort — Governor Generoso, Davao Oriental. View availability, rates, and payment details." />
+  <title>Booking & Rates — Aroma Tiblawan Beach Resort</title>
+  <link rel="icon" href="assets/images/LOGO.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="assets/styles/main.css" />
+  <style>
+
+    /* ══════════════════════════════════════════
+       PAGE HERO
+    ══════════════════════════════════════════ */
+    #booking-hero {
+      position: relative;
+      height: 46vh;
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .booking-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/Dark/Dark 2.JPG');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+    .booking-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.97) 0%, rgba(13,27,42,0.45) 60%, rgba(13,27,42,0.15) 100%);
+      z-index: 1;
+    }
+    .booking-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: var(--gap-xl) var(--gap-md);
+      color: #fff;
+    }
+    .booking-hero-content .eyebrow {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: var(--gap-sm);
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.2s forwards;
+    }
+    .booking-hero-content .eyebrow::before { content:''; width:28px; height:1px; background:var(--teal-light); opacity:0.7; }
+    .booking-hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.34s forwards;
+    }
+    .booking-hero-content p {
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.48s forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════
+       BOOKING LAYOUT
+    ══════════════════════════════════════════ */
+    #booking-body {
+      background: var(--sand);
+      padding: var(--gap-xl) 0 var(--gap-xxl);
+    }
+    .booking-grid {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .booking-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════════
+       LEFT COLUMN — CALENDAR + FORM
+    ══════════════════════════════════════════ */
+    .booking-left { display: flex; flex-direction: column; gap: var(--gap-lg); }
+
+    /* ── Room Selector ── */
+    .booking-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: var(--gap-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .booking-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: var(--gap-md);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .booking-card-title .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Room option pills */
+    .room-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.6rem;
+    }
+    .room-option {
+      border: 2px solid var(--sand-dark);
+      border-radius: var(--radius-md);
+      padding: var(--gap-sm) var(--gap-md);
+      cursor: pointer;
+      transition: border-color var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast);
+    }
+    .room-option:hover {
+      border-color: var(--teal-light);
+      background: var(--time-bg);
+    }
+    .room-option.selected {
+      border-color: var(--teal);
+      background: var(--time-bg);
+      box-shadow: 0 0 0 1px var(--teal);
+    }
+    .room-option-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+    .room-option-pax {
+      font-size: 0.74rem;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+    .room-option-price {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+    .room-option-price-sub {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* Stay type toggle */
+    .stay-toggle {
+      display: flex;
+      background: var(--sand);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      gap: 4px;
+      margin-top: var(--gap-sm);
+      width: fit-content;
+    }
+    .stay-toggle-btn {
+      padding: 0.55rem 1.3rem;
+      border-radius: calc(var(--radius-sm) - 2px);
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      border: none;
+      background: transparent;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: background var(--dur-fast), color var(--dur-fast), box-shadow var(--dur-fast);
+    }
+    .stay-toggle-btn.active {
+      background: #fff;
+      color: var(--text-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ── Calendar ── */
+    .calendar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--gap-md);
+    }
+    .cal-nav-btn {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--sand-dark);
+      background: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--dur-fast), border-color var(--dur-fast);
+      color: var(--text-dark);
+    }
+    .cal-nav-btn:hover { background: var(--sand); border-color: var(--sand-mid); }
+    .cal-month-label {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+    .cal-day-header {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      padding: 0.4rem 0;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background var(--dur-fast), color var(--dur-fast);
+      color: var(--text-dark);
+      position: relative;
+      user-select: none;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) { background: var(--time-bg); color: var(--teal); }
+    .cal-day.empty { cursor: default; }
+    .cal-day.disabled { color: var(--sand-mid); cursor: not-allowed; }
+    .cal-day.today { font-weight: 700; }
+    .cal-day.today::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%; transform: translateX(-50%);
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .cal-day.booked {
+      background: #FFF0F0;
+      color: #C0848A;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+    .cal-day.selected-start,
+    .cal-day.selected-end {
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+    }
+    .cal-day.in-range {
+      background: var(--time-bg);
+      color: var(--teal-dark);
+      border-radius: 0;
+    }
+    .cal-day.selected-start { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+    .cal-day.selected-end   { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .cal-day.selected-start.selected-end { border-radius: var(--radius-sm); }
+
+    .cal-legend {
+      display: flex;
+      gap: var(--gap-md);
+      margin-top: var(--gap-sm);
+      flex-wrap: wrap;
+    }
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+    }
+    .cal-legend-dot {
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── Booking Form ── */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-sm); }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: var(--sand);
+      border: 1.5px solid var(--sand-dark);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+      outline: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(58,143,163,0.15);
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    /* Confirmation message */
+    #form-confirm {
+      display: none;
+      background: var(--time-bg);
+      border: 1px solid rgba(58,143,163,0.3);
+      border-radius: var(--radius-md);
+      padding: var(--gap-md);
+      text-align: center;
+    }
+    #form-confirm .confirm-icon { font-size: 2.4rem; margin-bottom: 0.5rem; }
+    #form-confirm h4 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--teal-dark);
+      margin-bottom: 0.4rem;
+    }
+    #form-confirm p { font-size: 0.88rem; color: var(--text-mid); }
+
+    /* ══════════════════════════════════════════
+       RIGHT COLUMN — SUMMARY SIDEBAR
+    ══════════════════════════════════════════ */
+    .booking-sidebar {
+      position: sticky;
+      top: calc(72px + var(--gap-md));
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-md);
+    }
+    @media (max-width: 900px) { .booking-sidebar { position: static; } }
+
+    /* Summary card */
+    .summary-card {
+      background: var(--ocean-deep);
+      border-radius: var(--radius-xl);
+      padding: var(--gap-lg);
+      color: #fff;
+    }
+    .summary-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: var(--gap-md);
+      padding-bottom: var(--gap-sm);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--gap-sm);
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .summary-row-label { color: rgba(255,255,255,0.5); }
+    .summary-row-value { color: #fff; font-weight: 500; text-align: right; }
+    .summary-row-value.highlight { color: var(--teal-light); }
+    .summary-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: var(--gap-sm) 0;
+    }
+    .summary-total-label { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .summary-total-price {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin: 0.3rem 0;
+    }
+    .summary-dp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(58,143,163,0.18);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem var(--gap-sm);
+      margin-top: var(--gap-sm);
+    }
+    .summary-dp-label { font-size: 0.78rem; color: var(--teal-light); font-weight: 600; }
+    .summary-dp-amount {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--teal-light);
+    }
+    .summary-note {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: var(--gap-sm);
+      line-height: 1.5;
+    }
+
+    /* Payment card */
+    .payment-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: var(--gap-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .payment-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: var(--gap-md);
+    }
+    .payment-method {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-sm);
+      padding: var(--gap-sm) var(--gap-md);
+      border: 1.5px solid var(--sand-dark);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      transition: border-color var(--dur-fast), background var(--dur-fast);
+    }
+    .payment-method:hover { border-color: var(--teal-light); background: var(--time-bg); }
+    .payment-method.active { border-color: var(--teal); background: var(--time-bg); }
+    .payment-method-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .payment-method-name { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); }
+    .payment-method-detail { font-size: 0.78rem; color: var(--text-mid); }
+
+    .payment-steps {
+      margin-top: var(--gap-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .payment-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .payment-step-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════════════════════
+       INCLUSIONS BAND
+    ══════════════════════════════════════════ */
+    #inclusions-band {
+      background: var(--ocean-deep);
+      padding: var(--gap-xl) 0;
+    }
+    .inclusions-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+    }
+    .inclusions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--gap-sm);
+      margin-top: var(--gap-lg);
+    }
+    .inclusion-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.055);
+      border-radius: var(--radius-md);
+      padding: var(--gap-sm) var(--gap-md);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .inclusion-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .inclusion-text { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .inclusion-text strong { color: #fff; display: block; font-weight: 600; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <section id="booking-hero">
+    <div class="booking-hero-bg"></div>
+    <div class="booking-hero-overlay"></div>
+    <div class="booking-hero-content">
+      <div class="eyebrow">Booking & Rates</div>
+      <h1>Reserve Your Stay</h1>
+      <p>Select your accommodation, pick your dates, and send your downpayment via GCash or bank transfer to lock in your reservation.</p>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING BODY ══ -->
+  <section id="booking-body">
+    <div class="booking-grid">
+
+      <!-- LEFT: Steps -->
+      <div class="booking-left">
+
+        <!-- STEP 1: Room -->
+        <div class="booking-card reveal">
+          <div class="booking-card-title">
+            <span class="step-num">1</span>
+            Choose Your Accommodation
+          </div>
+          <div class="room-options" id="room-options"></div>
+
+          <div style="margin-top:var(--gap-md);">
+            <p style="font-size:0.78rem;color:var(--text-light);margin-bottom:0.5rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Stay Type</p>
+            <div class="stay-toggle">
+              <button class="stay-toggle-btn active" data-type="day">☀️ Day Tour</button>
+              <button class="stay-toggle-btn" data-type="overnight">🌙 Overnight</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Calendar -->
+        <div class="booking-card reveal">
+          <div class="booking-card-title">
+            <span class="step-num">2</span>
+            Select Your Date
+          </div>
+
+          <div class="calendar-nav">
+            <button class="cal-nav-btn" id="cal-prev">‹</button>
+            <span class="cal-month-label" id="cal-month-label"></span>
+            <button class="cal-nav-btn" id="cal-next">›</button>
+          </div>
+
+          <div class="cal-grid" id="cal-grid"></div>
+
+          <div class="cal-legend">
+            <div class="cal-legend-item">
+              <div class="cal-legend-dot" style="background:var(--teal);"></div>
+              <span>Selected</span>
+            </div>
+            <div class="cal-legend-item">
+              <div class="cal-legend-dot" style="background:var(--time-bg);border:1px solid rgba(58,143,163,0.3)"></div>
+              <span>In Range</span>
+            </div>
+            <div class="cal-legend-item">
+              <div class="cal-legend-dot" style="background:#FFF0F0;border:1px solid #e0b0b5;"></div>
+              <span>Booked / Unavailable</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Guest Info -->
+        <div class="booking-card reveal">
+          <div class="booking-card-title">
+            <span class="step-num">3</span>
+            Your Details
+          </div>
+
+          <div id="booking-form" style="display:flex;flex-direction:column;gap:var(--gap-sm);">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Full Name *</label>
+                <input type="text" id="f-name" placeholder="Juan dela Cruz" />
+              </div>
+              <div class="form-group">
+                <label for="f-contact">Contact Number *</label>
+                <input type="tel" id="f-contact" placeholder="09XX XXX XXXX" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-pax">Number of Guests *</label>
+                <input type="number" id="f-pax" placeholder="e.g. 8" min="1" />
+              </div>
+              <div class="form-group">
+                <label for="f-type">Event Type</label>
+                <select id="f-type">
+                  <option value="">Select one...</option>
+                  <option>Family Outing</option>
+                  <option>Barkada Trip</option>
+                  <option>Birthday Celebration</option>
+                  <option>Company Outing</option>
+                  <option>Wedding / Reception</option>
+                  <option>Reunion</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-notes">Special Requests / Notes</label>
+              <textarea id="f-notes" placeholder="Allergies, add-ons (karaoke, stage area), or anything we should know..."></textarea>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;gap:0.6rem;margin-top:0.25rem;">
+              <input type="checkbox" id="f-agree" style="width:16px;height:16px;margin-top:3px;accent-color:var(--teal);flex-shrink:0;" />
+              <label for="f-agree" style="font-size:0.8rem;color:var(--text-mid);cursor:pointer;line-height:1.5;">
+                I have read and agree to the <a href="rules.html" style="color:var(--teal);">House Rules & Policies</a>, including the NO REFUND / NO CANCELLATION policy.
+              </label>
+            </div>
+
+            <button class="btn btn-primary" id="submit-btn" onclick="handleSubmit()" style="margin-top:0.5rem;width:100%;justify-content:center;">
+              Send Booking Request via Messenger →
+            </button>
+          </div>
+
+          <!-- Shown after submit -->
+          <div id="form-confirm">
+            <div class="confirm-icon">🎉</div>
+            <h4>Booking Request Sent!</h4>
+            <p>We'll confirm your reservation via Facebook Messenger. Please send your <strong>50% downpayment</strong> to secure the date.</p>
+            <a href="https://m.me/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:var(--gap-md);width:100%;justify-content:center;">Open Messenger</a>
+          </div>
+        </div>
+
+      </div><!-- /booking-left -->
+
+      <!-- RIGHT: Sidebar -->
+      <div class="booking-sidebar">
+
+        <!-- Summary Card -->
+        <div class="summary-card reveal">
+          <div class="summary-title">Booking Summary</div>
+
+          <div class="summary-row">
+            <span class="summary-row-label">Accommodation</span>
+            <span class="summary-row-value highlight" id="sum-room">Not selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">Stay Type</span>
+            <span class="summary-row-value" id="sum-type">Day Tour</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">Check-in</span>
+            <span class="summary-row-value" id="sum-checkin">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">Check-out</span>
+            <span class="summary-row-value" id="sum-checkout">—</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-total-label">Total Rate</div>
+          <div class="summary-total-price" id="sum-total">PHP 0</div>
+
+          <div class="summary-dp">
+            <span class="summary-dp-label">💳 Downpayment (50%)</span>
+            <span class="summary-dp-amount" id="sum-dp">PHP 0</span>
+          </div>
+
+          <p class="summary-note">Full payment due upon check-in. No refunds — rescheduling available.</p>
+        </div>
+
+        <!-- Payment Card -->
+        <div class="payment-card reveal reveal-delay-1">
+          <div class="payment-card-title">💳 Payment Methods</div>
+
+          <div class="payment-method active" data-method="gcash">
+            <span class="payment-method-icon">📱</span>
+            <div>
+              <div class="payment-method-name">GCash</div>
+              <div class="payment-method-detail" id="gcash-detail"></div>
+            </div>
+          </div>
+
+          <div class="payment-method" data-method="bank">
+            <span class="payment-method-icon">🏦</span>
+            <div>
+              <div class="payment-method-name">Bank Transfer</div>
+              <div class="payment-method-detail">Details upon inquiry via Messenger</div>
+            </div>
+          </div>
+
+          <div class="payment-steps">
+            <div class="payment-step">
+              <span class="payment-step-num">1</span>
+              <span>Complete this form with your details and preferred dates.</span>
+            </div>
+            <div class="payment-step">
+              <span class="payment-step-num">2</span>
+              <span>Send <strong>50% downpayment</strong> via GCash or bank transfer.</span>
+            </div>
+            <div class="payment-step">
+              <span class="payment-step-num">3</span>
+              <span>Send <strong>proof of payment</strong> via Facebook Messenger.</span>
+            </div>
+            <div class="payment-step">
+              <span class="payment-step-num">4</span>
+              <span>We confirm your reservation and your date is locked in! 🎉</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /booking-sidebar -->
+    </div>
+  </section>
+
+  <!-- ══ INCLUSIONS BAND ══ -->
+  <div id="inclusions-band">
+    <div class="inclusions-inner">
+      <span class="section-label" style="color:var(--teal-light);">Every Booking Includes</span>
+      <div class="inclusions-grid" id="inclusions-grid"></div>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <script src="data/resort-data.js"></script>
+  <script src="scripts/components/navbar.js"></script>
+  <script src="scripts/components/social-proof-toast.js"></script>
+  <script src="scripts/main.js"></script>
+  <script>
+    // ── State ────────────────────────────────────────────────
+    let selectedRoom   = null;
+    let selectedType   = 'day';
+    let selectedStart  = null;
+    let selectedEnd    = null;
+    let calYear, calMonth;
+
+    // Fake booked dates for UI demonstration
+    const BOOKED_DATES = (() => {
+      const now = new Date();
+      const y = now.getFullYear(), m = now.getMonth();
+      return [
+        new Date(y, m, 8), new Date(y, m, 9), new Date(y, m, 10),
+        new Date(y, m, 15), new Date(y, m, 16),
+        new Date(y, m, 22),
+      ].map(d => d.toDateString());
+    })();
+
+    function PageInit() {
+      const now = new Date();
+      calYear  = now.getFullYear();
+      calMonth = now.getMonth();
+
+      renderRoomOptions();
+      renderCalendar();
+      renderPaymentInfo();
+      renderInclusions();
+      initStayToggle();
+      initPaymentToggle();
+      updateSummary();
+      prefillFromURL();
+    }
+
+    // ── Room Options ─────────────────────────────────────────
+    function renderRoomOptions() {
+      const accoms = ResortData.accommodations;
+      document.getElementById('room-options').innerHTML = accoms.map(a => {
+        const price = a.flatRate
+          ? formatPHP(a.flatRate.price)
+          : (selectedType === 'day' ? formatPHP(a.dayTour.price) : formatPHP(a.overnight.price));
+        const sub = a.flatRate ? 'flat rate' : (selectedType === 'day' ? 'day tour' : 'overnight');
+
+        return `
+          <div class="room-option" data-id="${a.id}" onclick="selectRoom('${a.id}')">
+            <div class="room-option-name">${a.name}</div>
+            <div class="room-option-pax">👥 Up to ${a.capacity} pax</div>
+            <div class="room-option-price">${price} <span class="room-option-price-sub">/ ${sub}</span></div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectRoom(id) {
+      selectedRoom = id;
+      document.querySelectorAll('.room-option').forEach(el => {
+        el.classList.toggle('selected', el.dataset.id === id);
+      });
+      updateSummary();
+    }
+
+    // ── Stay Toggle ──────────────────────────────────────────
+    function initStayToggle() {
+      document.querySelectorAll('.stay-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedType = btn.dataset.type;
+          selectedStart = null; selectedEnd = null;
+          document.querySelectorAll('.stay-toggle-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.type === selectedType)
+          );
+          renderRoomOptions();
+          renderCalendar();
+          updateSummary();
+        });
+      });
+    }
+
+    // ── Calendar ─────────────────────────────────────────────
+    const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    function renderCalendar() {
+      document.getElementById('cal-month-label').textContent = `${MONTHS[calMonth]} ${calYear}`;
+
+      const today    = new Date(); today.setHours(0,0,0,0);
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+      let html = DAYS.map(d => `<div class="cal-day-header">${d}</div>`).join('');
+
+      // Empty cells before first day
+      for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty"></div>`;
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(calYear, calMonth, d);
+        const isPast   = date < today;
+        const isBooked = BOOKED_DATES.includes(date.toDateString());
+        const isToday  = date.toDateString() === today.toDateString();
+
+        let cls = 'cal-day';
+        if (isPast || isBooked) cls += ' disabled';
+        if (isBooked) cls += ' booked';
+        if (isToday)  cls += ' today';
+
+        // Range highlighting
+        if (selectedStart) {
+          const ds = new Date(selectedStart); ds.setHours(0,0,0,0);
+          const de = selectedEnd ? (() => { const x = new Date(selectedEnd); x.setHours(0,0,0,0); return x; })() : null;
+
+          if (date.toDateString() === ds.toDateString()) cls += ' selected-start';
+          if (de && date.toDateString() === de.toDateString()) cls += ' selected-end';
+          if (de && date > ds && date < de) cls += ' in-range';
+        }
+
+        const clickable = !isPast && !isBooked;
+        html += `<div class="${cls}" ${clickable ? `onclick="selectDay(${calYear},${calMonth},${d})"` : ''}>${d}</div>`;
+      }
+
+      document.getElementById('cal-grid').innerHTML = html;
+    }
+
+    function selectDay(y, m, d) {
+      const clicked = new Date(y, m, d);
+      if (!selectedStart || (selectedStart && selectedEnd)) {
+        // Fresh start
+        selectedStart = clicked; selectedEnd = null;
+      } else {
+        const start = new Date(selectedStart);
+        if (clicked <= start) {
+          selectedStart = clicked; selectedEnd = null;
+        } else {
+          // For day tour, only single day
+          if (selectedType === 'day') { selectedStart = clicked; selectedEnd = null; }
+          else { selectedEnd = clicked; }
+        }
+      }
+      renderCalendar();
+      updateSummary();
+    }
+
+    document.getElementById('cal-prev').addEventListener('click', () => {
+      calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    });
+    document.getElementById('cal-next').addEventListener('click', () => {
+      calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; }
+      renderCalendar();
+    });
+
+    // ── Summary ──────────────────────────────────────────────
+    function updateSummary() {
+      const room = selectedRoom ? ResortData.accommodations.find(a => a.id === selectedRoom) : null;
+      const sumRoom     = document.getElementById('sum-room');
+      const sumType     = document.getElementById('sum-type');
+      const sumCheckin  = document.getElementById('sum-checkin');
+      const sumCheckout = document.getElementById('sum-checkout');
+      const sumTotal    = document.getElementById('sum-total');
+      const sumDp       = document.getElementById('sum-dp');
+
+      sumRoom.textContent  = room ? room.name : 'Not selected';
+      sumType.textContent  = selectedType === 'day' ? '☀️ Day Tour' : '🌙 Overnight';
+
+      const times = ResortData.times;
+      const ci = selectedType === 'day' ? times.dayTour.checkIn : times.overnight.checkIn;
+      const co = selectedType === 'day' ? times.dayTour.checkOut : times.overnight.checkOut;
+
+      const fmt = (dt) => dt ? dt.toLocaleDateString('en-PH', {weekday:'short', month:'short', day:'numeric'}) : '—';
+
+      sumCheckin.textContent  = selectedStart ? `${fmt(new Date(selectedStart))} · ${ci}` : `— · ${ci}`;
+      sumCheckout.textContent = selectedEnd   ? `${fmt(new Date(selectedEnd))} · ${co}`
+                              : selectedStart && selectedType === 'day' ? `Same Day · ${co}` : `— · ${co}`;
+
+      let total = 0;
+      if (room) {
+        if (room.flatRate) total = room.flatRate.price;
+        else total = selectedType === 'day' ? room.dayTour.price : room.overnight.price;
+      }
+      sumTotal.textContent = formatPHP(total);
+      sumDp.textContent    = formatPHP(Math.ceil(total * 0.5));
+    }
+
+    // ── Payment Info ─────────────────────────────────────────
+    function renderPaymentInfo() {
+      const g = ResortData.booking.gcash;
+      document.getElementById('gcash-detail').textContent = `${g.name} · ${g.number}`;
+    }
+
+    function initPaymentToggle() {
+      document.querySelectorAll('.payment-method').forEach(el => {
+        el.addEventListener('click', () => {
+          document.querySelectorAll('.payment-method').forEach(x => x.classList.remove('active'));
+          el.classList.add('active');
+        });
+      });
+    }
+
+    // ── Inclusions Band ──────────────────────────────────────
+    function renderInclusions() {
+      const items = [
+        { icon:'🍳', title:'Fully Equipped Kitchen', desc:'Everything you need to cook a full meal.' },
+        { icon:'🔥', title:'Free Charcoal & Butane', desc:'Grilling essentials on the house.' },
+        { icon:'✅', title:'Zero Corkage Fees',       desc:'Bring your own food and drinks.' },
+        { icon:'📶', title:'Piso Wifi On-Site',       desc:'Stay connected throughout your stay.' },
+        { icon:'🌊', title:'Beach Access',             desc:'Direct access to the shoreline.' },
+        { icon:'🐾', title:'Pet-Friendly',             desc:'Leashed pets are welcome.' },
+      ];
+      document.getElementById('inclusions-grid').innerHTML = items.map(i => `
+        <div class="inclusion-item reveal">
+          <span class="inclusion-icon">${i.icon}</span>
+          <div class="inclusion-text"><strong>${i.title}</strong>${i.desc}</div>
+        </div>
+      `).join('');
+      // Re-run reveal observer for newly added items
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        revealObserver && revealObserver.observe(el);
+      });
+    }
+
+    // ── Prefill from URL params (e.g., ?room=primary-suite) ──
+    function prefillFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const roomId = params.get('room');
+      if (roomId) setTimeout(() => selectRoom(roomId), 300);
+    }
+
+    // ── Submit ───────────────────────────────────────────────
+    function handleSubmit() {
+      const name    = document.getElementById('f-name').value.trim();
+      const contact = document.getElementById('f-contact').value.trim();
+      const pax     = document.getElementById('f-pax').value.trim();
+      const type    = document.getElementById('f-type').value;
+      const notes   = document.getElementById('f-notes').value.trim();
+      const agreed  = document.getElementById('f-agree').checked;
+
+      if (!selectedRoom) { alert('Please choose an accommodation first.'); return; }
+      if (!selectedStart) { alert('Please select a date on the calendar.'); return; }
+      if (!name || !contact) { alert('Please fill in your name and contact number.'); return; }
+      if (!agreed) { alert('Please agree to the house rules before proceeding.'); return; }
+
+      // 1. Format the date beautifully
+      const startDateStr = new Date(selectedStart).toLocaleDateString('en-PH', { month: 'long', day: 'numeric', year: 'numeric' });
+      const endDateStr = selectedEnd ? new Date(selectedEnd).toLocaleDateString('en-PH', { month: 'long', day: 'numeric', year: 'numeric' }) : startDateStr;
+      
+      const stayDuration = selectedType === 'day' ? 'Day Tour' : 'Overnight';
+      const dateRange = selectedStart === selectedEnd || !selectedEnd ? startDateStr : `${startDateStr} to ${endDateStr}`;
+
+      // 2. Create the message template
+      const message = `Hello Aroma Tiblawan! I would like to request a booking:
+      
+Name: ${name}
+Contact: ${contact}
+Guests: ${pax} pax
+Event: ${type || 'N/A'}
+
+Accommodation: ${document.getElementById('sum-room').textContent}
+Stay Type: ${stayDuration}
+Date: ${dateRange}
+
+Total Estimated Rate: ${document.getElementById('sum-total').textContent}
+Notes: ${notes || 'None'}`;
+
+      // 3. Copy to Clipboard and Show Confirmation
+      navigator.clipboard.writeText(message).then(() => {
+        // Hide form, show confirmation
+        document.getElementById('booking-form').style.display = 'none';
+        
+        // Update the confirmation text to tell them to paste
+        const confirmDiv = document.getElementById('form-confirm');
+        confirmDiv.style.display = 'block';
+        confirmDiv.innerHTML = `
+          <div class="confirm-icon">🎉</div>
+          <h4>Booking Details Copied!</h4>
+          <p>We have copied your booking details to your clipboard.</p>
+          <p>Click the button below to open Messenger, <strong>PASTE the message</strong>, and hit send!</p>
+          <a href="https://m.me/AromaTiblawan" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:var(--gap-md);width:100%;justify-content:center;">Open Messenger & Paste</a>
+        `;
+      }).catch(err => {
+        alert("Oops! Something went wrong copying your details. Please try again.");
+      });
+    }
+
+    // Expose revealObserver for inclusions
+    let revealObserver;
+    const _origInit = typeof initReveal === 'function' ? initReveal : null;
+  </script>
+</body>
+</html>

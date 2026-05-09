@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ceb-PH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="House Rules and Policies — Aroma Tiblawan Beach Resort, Governor Generoso, Davao Oriental." />
+  <title>House Rules — Aroma Tiblawan Beach Resort</title>
+  <link rel="icon" href="assets/images/LOGO.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="assets/styles/main.css" />
+  <style>
+
+    /* ══════════════════════════════════════════
+       PAGE HERO — SPLIT DESIGN
+    ══════════════════════════════════════════ */
+    #rules-hero {
+      background: var(--ocean-deep);
+      padding: calc(72px + var(--gap-xxl)) 0 var(--gap-xxl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rules-hero-wave {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 80px;
+      z-index: 1;
+    }
+
+    .rules-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .rules-hero-inner { grid-template-columns: 1fr; }
+      .rules-hero-right { display: none; }
+    }
+
+    .rules-hero-left .eyebrow {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: var(--gap-sm);
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.2s forwards;
+    }
+    .rules-hero-left .eyebrow::before { content:''; width:28px; height:1px; background:var(--teal-light); opacity:0.7; }
+
+    .rules-hero-left h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.34s forwards;
+    }
+
+    .rules-hero-left p {
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.72;
+      max-width: 440px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.48s forwards;
+    }
+
+    .rules-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.55s forwards;
+    }
+
+    .quick-rule-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 0.75rem var(--gap-md);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
+    }
+
+    .quick-rule-pill .pill-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════
+       TIMES SPOTLIGHT
+       ── The most important info on the page ──
+    ══════════════════════════════════════════ */
+    #times-spotlight {
+      background: var(--sand);
+      padding: var(--gap-xl) 0 var(--gap-lg);
+    }
+
+    .times-spotlight-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+    }
+
+    .times-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-md);
+      margin-top: var(--gap-lg);
+    }
+
+    @media (max-width: 580px) { .times-cards { grid-template-columns: 1fr; } }
+
+    .time-spotlight-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .time-card-top {
+      padding: var(--gap-lg);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--gap-md);
+    }
+
+    .time-card-emoji {
+      font-size: 2.6rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .time-card-mode {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .time-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .time-card-sub {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+
+    .time-card-bottom {
+      background: var(--ocean-deep);
+      padding: var(--gap-md) var(--gap-lg);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: var(--gap-sm);
+    }
+
+    /*.time-card-slot {}*/
+
+    .time-card-slot-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ── THE EYE-CATCHING TIME VALUES — large, Ocean Blue ── */
+    .time-card-value {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--teal-light);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .time-card-arrow {
+      color: rgba(255,255,255,0.25);
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    /* Overnight accent stripe */
+    .time-spotlight-card.overnight .time-card-bottom {
+      background: linear-gradient(135deg, var(--teal-xdark), var(--ocean-mid));
+    }
+
+    /* ══════════════════════════════════════════
+       RULES BODY
+    ══════════════════════════════════════════ */
+    #rules-body {
+      background: var(--sand);
+      padding: var(--gap-lg) 0 var(--gap-xxl);
+    }
+
+    .rules-body-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .rules-body-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ── Sticky Side Nav ── */
+    .rules-side-nav {
+      position: sticky;
+      top: calc(72px + var(--gap-md));
+      background: #fff;
+      border-radius: var(--radius-xl);
+      padding: var(--gap-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 800px) { .rules-side-nav { display: none; } }
+
+    .side-nav-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 0.5rem var(--gap-sm);
+      margin-bottom: 0.5rem;
+    }
+
+    .side-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem var(--gap-sm);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      transition: background var(--dur-fast), color var(--dur-fast);
+      cursor: pointer;
+    }
+
+    .side-nav-link:hover, .side-nav-link.active {
+      background: var(--time-bg);
+      color: var(--teal);
+    }
+
+    .side-nav-link .nav-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .side-nav-cta {
+      margin-top: var(--gap-md);
+      padding-top: var(--gap-md);
+      border-top: 1px solid var(--sand-dark);
+    }
+
+    /* ── Rules Main Content ── */
+    .rules-main {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-lg);
+    }
+
+    .rules-section {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rules-section-header {
+      padding: var(--gap-md) var(--gap-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--gap-sm);
+      border-bottom: 1px solid var(--sand-dark);
+    }
+
+    .rules-section-header.booking-header   { background: #f0f9fb; }
+    .rules-section-header.etiquette-header { background: #f4fbf0; }
+    .rules-section-header.damages-header   { background: #fff8f0; }
+
+    .rules-section-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .rules-section-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .rules-section-body {
+      padding: var(--gap-md) var(--gap-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--gap-md);
+      padding: var(--gap-sm) 0;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .rule-item:last-child { border-bottom: none; }
+
+    .rule-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--sand);
+      color: var(--text-mid);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .rule-text {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* NOTICE items get a different treatment */
+    .rule-item.is-notice .rule-text {
+      color: #8B5E3C;
+    }
+
+    .rule-item.is-notice .rule-num {
+      background: #FFF3E8;
+      color: #C47A3A;
+    }
+
+    /* Important highlight (NO REFUND etc) */
+    .rule-item.is-important .rule-text {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .rule-item.is-important .rule-num {
+      background: var(--time-bg);
+      color: var(--teal-dark);
+    }
+
+    /* ══════════════════════════════════════════
+       NOISE CURFEW CALLOUT
+    ══════════════════════════════════════════ */
+    .noise-callout {
+      background: var(--ocean-deep);
+      border-radius: var(--radius-lg);
+      padding: var(--gap-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--gap-md);
+      margin: var(--gap-sm) var(--gap-lg) var(--gap-md);
+    }
+
+    .noise-callout-icon { font-size: 2.2rem; flex-shrink: 0; }
+
+    .noise-callout-text h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .noise-callout-text p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+    }
+
+    /* ══════════════════════════════════════════
+       QUICK FACTS BAND
+    ══════════════════════════════════════════ */
+    #quick-facts {
+      background: var(--teal);
+      padding: var(--gap-xl) 0;
+    }
+
+    .quick-facts-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--gap-sm);
+    }
+
+    .quick-fact {
+      text-align: center;
+      padding: var(--gap-md);
+    }
+
+    .quick-fact-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    .quick-fact-value {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .quick-fact-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ══════════════════════════════════════════
+       CTA AT BOTTOM
+    ══════════════════════════════════════════ */
+    #rules-cta {
+      background: var(--sand-dark);
+      padding: var(--gap-xl) 0;
+      text-align: center;
+    }
+
+    .rules-cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <section id="rules-hero">
+    <div class="rules-hero-inner">
+      <div class="rules-hero-left">
+        <div class="eyebrow">House Rules & Policies</div>
+        <h1>Balaod sa Aroma.</h1>
+        <p>To ensure every guest has a safe, clean, and enjoyable experience, we ask that everyone respect these simple guidelines. Salamat!</p>
+      </div>
+      <div class="rules-hero-right" id="quick-pills"></div>
+    </div>
+    <!-- Wave divider -->
+    <svg class="rules-hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F4EFE6"/>
+    </svg>
+  </section>
+
+  <!-- ══ TIMES SPOTLIGHT ══ -->
+  <section id="times-spotlight">
+    <div class="times-spotlight-inner">
+      <span class="section-label reveal">Schedule at a Glance</span>
+      <h2 class="section-title reveal reveal-delay-1">Check-in & Check-out Times</h2>
+      <div class="times-cards" id="times-cards"></div>
+    </div>
+  </section>
+
+  <!-- ══ RULES BODY ══ -->
+  <section id="rules-body">
+    <div class="rules-body-inner">
+
+      <!-- Side Navigation -->
+      <nav class="rules-side-nav">
+        <div class="side-nav-title">Jump to Section</div>
+        <a class="side-nav-link active" onclick="scrollTo('section-booking')">
+          <span class="nav-icon">📋</span> Booking & Payments
+        </a>
+        <a class="side-nav-link" onclick="scrollTo('section-etiquette')">
+          <span class="nav-icon">🌊</span> Resort Etiquette
+        </a>
+        <a class="side-nav-link" onclick="scrollTo('section-damages')">
+          <span class="nav-icon">⚠️</span> Damages & Liabilities
+        </a>
+        <div class="side-nav-cta">
+          <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.85rem;">Reserve Now</a>
+        </div>
+      </nav>
+
+      <!-- Rules Content -->
+      <div class="rules-main" id="rules-main"></div>
+
+    </div>
+  </section>
+
+  <!-- ══ QUICK FACTS BAND ══ -->
+  <div id="quick-facts">
+    <div class="quick-facts-inner">
+      <div class="quick-fact reveal">
+        <div class="quick-fact-icon">☀️</div>
+        <div class="quick-fact-value">8 AM</div>
+        <div class="quick-fact-label">Day Tour Check-in</div>
+      </div>
+      <div class="quick-fact reveal reveal-delay-1">
+        <div class="quick-fact-icon">🌅</div>
+        <div class="quick-fact-value">5 PM</div>
+        <div class="quick-fact-label">Day Tour Check-out</div>
+      </div>
+      <div class="quick-fact reveal reveal-delay-2">
+        <div class="quick-fact-icon">🌙</div>
+        <div class="quick-fact-value">2 PM</div>
+        <div class="quick-fact-label">Overnight Check-in</div>
+      </div>
+      <div class="quick-fact reveal reveal-delay-3">
+        <div class="quick-fact-icon">🌄</div>
+        <div class="quick-fact-value">12 PM</div>
+        <div class="quick-fact-label">Overnight Check-out</div>
+      </div>
+      <div class="quick-fact reveal reveal-delay-4">
+        <div class="quick-fact-icon">🎤</div>
+        <div class="quick-fact-value">1 AM</div>
+        <div class="quick-fact-label">Noise / Karaoke Curfew</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <section id="rules-cta">
+    <div class="rules-cta-inner">
+      <span class="section-label" style="justify-content:center;display:flex;">Ready to Visit?</span>
+      <h2 class="section-title reveal" style="text-align:center;">Book with Confidence</h2>
+      <p class="reveal reveal-delay-1" style="text-align:center;margin:0 auto var(--gap-lg);">
+        Now that you know our house rules, you're all set. Reserve your space and enjoy the peace of the sea.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="reveal reveal-delay-2">
+        <a href="booking.html" class="btn btn-primary">Reserve Your Stay</a>
+        <a href="accommodations.html" class="btn btn-outline">View Accommodations</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <script src="data/resort-data.js"></script>
+  <script src="scripts/components/navbar.js"></script>
+  <script src="scripts/components/social-proof-toast.js"></script>
+  <script src="scripts/main.js"></script>
+  <script>
+    function PageInit() {
+      renderQuickPills();
+      renderTimesCards();
+      renderRulesMain();
+      initSideNavScroll();
+    }
+
+    // ── Quick Pills (Hero right side) ────────────────────────
+    function renderQuickPills() {
+      const pills = [
+        { icon: '🚫', text: 'NO Refund / NO Cancellation (Rescheduling is PERMITTED)' },
+        { icon: '🔇', text: 'Noise curfew strictly at 1:00 AM — karaoke included' },
+        { icon: '✅', text: '50% Downpayment to confirm your reservation' },
+        { icon: '🐾', text: 'Pets welcome — must be leashed, owners must clean up' },
+        { icon: '🧹', text: 'Resort double-checked for damages before checkout' },
+      ];
+      document.getElementById('quick-pills').innerHTML = pills.map(p => `
+        <div class="quick-rule-pill">
+          <span class="pill-icon">${p.icon}</span>
+          <span>${p.text}</span>
+        </div>
+      `).join('');
+    }
+
+    // ── Times Cards ──────────────────────────────────────────
+    function renderTimesCards() {
+      const { dayTour, overnight } = ResortData.times;
+      document.getElementById('times-cards').innerHTML = `
+
+        <div class="time-spotlight-card reveal">
+          <div class="time-card-top">
+            <div class="time-card-emoji">☀️</div>
+            <div>
+              <div class="time-card-mode">Day Tour</div>
+              <div class="time-card-title">Sun & Sand Package</div>
+              <div class="time-card-sub">Spend a full day at the beach. Check in at 8 in the morning and head home before sunset.</div>
+            </div>
+          </div>
+          <div class="time-card-bottom">
+            <div class="time-card-slot">
+              <div class="time-card-slot-label">Check-in</div>
+              <div class="time-card-value">${dayTour.checkIn}</div>
+            </div>
+            <div class="time-card-arrow">→</div>
+            <div class="time-card-slot" style="text-align:right;">
+              <div class="time-card-slot-label">Check-out</div>
+              <div class="time-card-value">${dayTour.checkOut}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="time-spotlight-card overnight reveal reveal-delay-2">
+          <div class="time-card-top">
+            <div class="time-card-emoji">🌙</div>
+            <div>
+              <div class="time-card-mode">Overnight Stay</div>
+              <div class="time-card-title">Sleep by the Sea</div>
+              <div class="time-card-sub">Arrive in the afternoon, stay the night, and check out by noon the next day. Perfect for barkadas and families.</div>
+            </div>
+          </div>
+          <div class="time-card-bottom">
+            <div class="time-card-slot">
+              <div class="time-card-slot-label">Check-in</div>
+              <div class="time-card-value">${overnight.checkIn}</div>
+            </div>
+            <div class="time-card-arrow">→</div>
+            <div class="time-card-slot" style="text-align:right;">
+              <div class="time-card-slot-label">Check-out</div>
+              <div class="time-card-value">${overnight.checkOut}</div>
+            </div>
+          </div>
+        </div>
+
+      `;
+    }
+
+    // ── Rules Main ───────────────────────────────────────────
+    function renderRulesMain() {
+      const { bookingPayments, etiquette, damages } = ResortData.rules;
+
+      const sections = [
+        {
+          id:       'section-booking',
+          category: bookingPayments,
+          headerClass: 'booking-header',
+          ruleClass: (i, txt) => txt.startsWith('NO REFUND') ? 'is-important' : '',
+          extra: '',
+        },
+        {
+          id:       'section-etiquette',
+          category: etiquette,
+          headerClass: 'etiquette-header',
+          ruleClass: (i, txt) => '',
+          extra: `
+            <div class="noise-callout">
+              <span class="noise-callout-icon">🔇</span>
+              <div class="noise-callout-text">
+                <h4>Noise Curfew: 1:00 AM</h4>
+                <p>We share this coastal community with our neighbors. Please keep noise — including karaoke — below this level after 1 AM. Daghang salamat!</p>
+              </div>
+            </div>
+          `,
+        },
+        {
+          id:       'section-damages',
+          category: damages,
+          headerClass: 'damages-header',
+          ruleClass: (i, txt) => txt.startsWith('NOTICE') ? 'is-notice' : '',
+          extra: '',
+        },
+      ];
+
+      document.getElementById('rules-main').innerHTML = sections.map(sec => `
+        <div class="rules-section reveal" id="${sec.id}">
+          <div class="rules-section-header ${sec.headerClass}">
+            <span class="rules-section-icon">${sec.category.icon}</span>
+            <h3 class="rules-section-title">${sec.category.title}</h3>
+          </div>
+          ${sec.extra}
+          <div class="rules-section-body">
+            ${sec.category.items.map((item, i) => `
+              <div class="rule-item ${sec.ruleClass(i, item)}">
+                <span class="rule-num">${i + 1}</span>
+                <p class="rule-text">${item}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ── Side Nav smooth scroll + active state ────────────────
+    function scrollTo(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function initSideNavScroll() {
+      const sections = ['section-booking','section-etiquette','section-damages'];
+      const links    = document.querySelectorAll('.side-nav-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const target = document.querySelector(`.side-nav-link[onclick*="${entry.target.id}"]`);
+            if (target) target.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
