@@ -1,22 +1,1165 @@
 <!DOCTYPE html>
-<html lang="ceb-PH"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Aroma Tiblawan Beach Resort</title>
-<link rel="stylesheet" href="assets/styles/main.css"/>
-<style>
-  .stub-page { min-height: 100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding: 6rem 2rem 4rem; background: var(--ocean-deep); color:#fff; }
-  .stub-page h2 { font-family: var(--font-serif); font-size:2.5rem; margin-bottom:1rem; }
-  .stub-page p  { color:rgba(255,255,255,0.6); margin-bottom:2rem; }
-</style></head><body>
-<div class="stub-page">
-  <div>
-    <img src="assets/images/LOGO.jpg" style="height:64px;border-radius:4px;margin-bottom:2rem;"/>
-    <h2>Coming Next</h2>
-    <p>This page is part of the build sequence and will be completed in the next step.</p>
-    <a href="index.html" class="btn btn-outline" style="border-color:var(--teal);color:var(--teal-light);">← Back to Home</a>
+<html lang="ceb-PH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aroma Tiblawan Beach Resort accommodations — Shore Cottages, Top Cottage, Primary Suite, and Exclusive Whole-Resort Rental in Governor Generoso, Davao Oriental." />
+  <title>Accommodations — Aroma Tiblawan Beach Resort</title>
+
+  <link rel="icon" href="assets/images/LOGO.jpg" type="image/jpeg" />
+  <link rel="stylesheet" href="assets/styles/main.css" />
+
+  <style>
+
+    /* ══════════════════════════════════════════
+       PAGE HERO
+    ══════════════════════════════════════════ */
+    #accom-hero {
+      position: relative;
+      height: 58vh;
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .accom-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/Dark/Dark 1.JPG');
+      background-size: cover;
+      background-position: center 35%;
+      z-index: 0;
+      transform: scale(1.04);
+      animation: heroKenBurns 14s ease-out forwards;
+    }
+
+    @keyframes heroKenBurns {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.0); }
+    }
+
+    .accom-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(13, 27, 42, 0.95) 0%,
+        rgba(13, 27, 42, 0.50) 55%,
+        rgba(13, 27, 42, 0.18) 100%
+      );
+      z-index: 1;
+    }
+
+    .accom-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: var(--gap-xl) var(--gap-md);
+      color: #fff;
+    }
+
+    .accom-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      font-weight: 600;
+      margin-bottom: var(--gap-sm);
+      opacity: 0;
+      animation: fadeSlideUp 0.7s var(--ease-out) 0.2s forwards;
+    }
+
+    .accom-hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--teal-light);
+      opacity: 0.7;
+    }
+
+    .accom-hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.36s forwards;
+    }
+
+    .accom-hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 500px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s var(--ease-out) 0.52s forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════
+       CHECK-IN / CHECK-OUT TIMES BANNER
+       — Must be distinctive and eye-catching per brief
+    ══════════════════════════════════════════ */
+    #times-banner {
+      background: #fff;
+      border-bottom: 2px solid var(--sand-dark);
+    }
+
+    .times-inner {
+      display: flex;
+      align-items: stretch;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      flex-wrap: wrap;
+    }
+
+    .time-block {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-md);
+      padding: var(--gap-md) var(--gap-xl) var(--gap-md) 0;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .time-block + .time-block {
+      border-left: 1px solid var(--sand-dark);
+      padding-left: var(--gap-xl);
+    }
+
+    @media (max-width: 580px) {
+      .time-block { min-width: 100%; padding: var(--gap-md) 0; }
+      .time-block + .time-block { border-left: none; border-top: 1px solid var(--sand-dark); padding-left: 0; }
+    }
+
+    .time-block-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      background: var(--time-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      border: 1px solid rgba(58,143,163,0.2);
+    }
+
+    .time-block-info { flex: 1; }
+
+    .time-block-mode {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .time-slots {
+      display: flex;
+      gap: var(--gap-md);
+      align-items: center;
+    }
+
+    .time-slot-item { text-align: left; }
+
+    .time-slot-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    /* THE DISTINCTIVE TIME DISPLAY — Ocean Blue, large, unmissable */
+    .time-slot-value {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--time-color);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .time-arrow {
+      color: var(--sand-mid);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ══════════════════════════════════════════
+       STICKY FILTER BAR
+    ══════════════════════════════════════════ */
+    #filter-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+      background: var(--sand);
+      border-bottom: 1px solid var(--sand-dark);
+    }
+
+    .filter-bar-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-bar-inner::-webkit-scrollbar { display: none; }
+
+    .filter-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: var(--gap-sm) var(--gap-md);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+    }
+
+    .filter-tab:hover {
+      color: var(--teal);
+      background: var(--sand-dark);
+    }
+
+    .filter-tab.active {
+      color: var(--teal);
+      border-bottom-color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════════════
+       ACCOMMODATION CARDS — ALTERNATING LAYOUT
+    ══════════════════════════════════════════ */
+    #accom-list {
+      background: var(--sand);
+      padding: var(--gap-xl) 0 var(--gap-xxl);
+    }
+
+    .accom-list-wrap {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-xl);
+    }
+
+    /* Full-width alternating card */
+    .accom-card-full {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 460px;
+      transition: box-shadow var(--dur-mid);
+    }
+
+    .accom-card-full:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .accom-card-full.is-flipped {
+      direction: rtl; /* flip column order */
+    }
+    .accom-card-full.is-flipped > * {
+      direction: ltr;
+    }
+
+    @media (max-width: 780px) {
+      .accom-card-full,
+      .accom-card-full.is-flipped {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        min-height: auto;
+      }
+    }
+
+    /* ── Image Panel ── */
+    .full-card-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .full-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.75s var(--ease-out);
+    }
+
+    .accom-card-full:hover .full-card-img img {
+      transform: scale(1.05);
+    }
+
+    /* gradient shadow on image toward the content side */
+    .full-card-img-shadow {
+      position: absolute;
+      inset: 0;
+      /* overridden inline per flip state */
+    }
+
+    .card-img-badges {
+      position: absolute;
+      top: var(--gap-sm);
+      left: var(--gap-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      z-index: 1;
+    }
+
+    .img-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(13,27,42,0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.28rem 0.72rem;
+      border-radius: 100px;
+    }
+
+    .img-badge.teal {
+      background: rgba(58, 143, 163, 0.85);
+    }
+
+    .pax-pill {
+      position: absolute;
+      bottom: var(--gap-sm);
+      right: var(--gap-sm);
+      background: rgba(255,255,255,0.94);
+      color: var(--text-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ── Content Panel ── */
+    .full-card-body {
+      padding: var(--gap-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--gap-md);
+    }
+
+    @media (max-width: 780px) {
+      .full-card-body { padding: var(--gap-lg) var(--gap-md); }
+    }
+
+    .card-index-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+    }
+
+    /* Feature tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.1rem;
+    }
+
+    .card-tag {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--teal-dark);
+      background: var(--time-bg);
+      border: 1px solid rgba(58,143,163,0.18);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    /* Rate display block */
+    .card-rate-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--sand-dark);
+    }
+
+    .rate-cell {
+      padding: var(--gap-sm) var(--gap-md);
+      background: var(--sand);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .rate-cell + .rate-cell {
+      border-left: 1px solid var(--sand-dark);
+    }
+
+    .rate-cell-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* The time displays — Ocean Blue, eye-catching per brief */
+    .rate-cell-time {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--time-color);
+      display: flex;
+      align-items: center;
+      gap: 0.28rem;
+    }
+
+    .rate-cell-price {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+
+    .rate-cell-price sub {
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: var(--text-light);
+      vertical-align: baseline;
+    }
+
+    /* CTA row */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-sm);
+      flex-wrap: wrap;
+    }
+
+    .card-dp-note {
+      font-size: 0.76rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* Hidden by filter */
+    .accom-card-full.hidden {
+      display: none;
+    }
+
+    /* ══════════════════════════════════════════
+       WHOLE RESORT — DARK FULL-WIDTH SECTION
+    ══════════════════════════════════════════ */
+    #whole-resort {
+      background: var(--ocean-deep);
+      position: relative;
+      overflow: hidden;
+      padding: var(--gap-xxl) 0;
+    }
+
+    .wr-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/Dark/Dark 4.JPG');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .wr-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
+
+    @media (max-width: 760px) {
+      .wr-content { grid-template-columns: 1fr; }
+    }
+
+    .wr-left .section-label { color: var(--teal-light); }
+
+    .wr-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .wr-desc {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: var(--gap-md);
+    }
+
+    .wr-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: var(--gap-lg);
+    }
+
+    .wr-price {
+      font-family: var(--font-serif);
+      font-size: 3.8rem;
+      font-weight: 500;
+      color: var(--teal-light);
+      line-height: 1;
+    }
+
+    .wr-price-note {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .wr-actions {
+      display: flex;
+      gap: var(--gap-sm);
+      flex-wrap: wrap;
+    }
+
+    /* Feature grid on right side */
+    .wr-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .wr-feat-item {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: var(--gap-sm) var(--gap-md);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      transition: background var(--dur-fast);
+    }
+
+    .wr-feat-item:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .wr-feat-icon { font-size: 1.3rem; flex-shrink: 0; line-height: 1.3; }
+
+    .wr-feat-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.45;
+    }
+
+    /* ══════════════════════════════════════════
+       COMPARISON TABLE
+    ══════════════════════════════════════════ */
+    #comparison {
+      background: #fff;
+      padding: var(--gap-xxl) 0;
+    }
+
+    .comp-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+    }
+
+    .comp-header {
+      margin-bottom: var(--gap-xl);
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--sand-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    .comp-table thead {
+      background: var(--ocean-deep);
+    }
+
+    .comp-table thead th {
+      padding: 1.1rem 1.25rem;
+      text-align: left;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-sans);
+      white-space: nowrap;
+    }
+
+    .comp-table thead th:last-child { text-align: center; }
+
+    .comp-table tbody tr {
+      border-bottom: 1px solid var(--sand-dark);
+      transition: background var(--dur-fast);
+    }
+
+    .comp-table tbody tr:last-child { border-bottom: none; }
+    .comp-table tbody tr:hover { background: var(--sand); }
+
+    .comp-table td {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+
+    .comp-table td.name-col {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .comp-table td.name-col small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-top: 0.15rem;
+    }
+
+    .comp-table td.time-col {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--time-color);
+      white-space: nowrap;
+    }
+
+    .comp-table td.price-col {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .comp-table td.cta-col { text-align: center; }
+
+    .comp-table td.cta-col a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--teal);
+      color: #fff;
+      transition: background var(--dur-fast), transform var(--dur-fast);
+    }
+
+    .comp-table td.cta-col a:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .comp-table tr.highlight-row {
+      background: var(--time-bg);
+    }
+
+    .comp-table tr.highlight-row td {
+      border-top: 1px solid rgba(58,143,163,0.2);
+      border-bottom: 1px solid rgba(58,143,163,0.2);
+    }
+
+    .pax-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--sand-dark);
+      color: var(--text-dark);
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    /* ══════════════════════════════════════════
+       DOWNPAYMENT NOTICE BAND
+    ══════════════════════════════════════════ */
+    #dp-notice {
+      background: linear-gradient(135deg, var(--teal-xdark) 0%, var(--teal-dark) 100%);
+      padding: var(--gap-xl) 0;
+    }
+
+    .dp-notice-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+      display: flex;
+      align-items: center;
+      gap: var(--gap-lg);
+      flex-wrap: wrap;
+    }
+
+    .dp-icon {
+      font-size: 2.6rem;
+      flex-shrink: 0;
+    }
+
+    .dp-text { flex: 1; min-width: 220px; }
+
+    .dp-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .dp-text p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <section id="accom-hero">
+    <div class="accom-hero-bg"></div>
+    <div class="accom-hero-overlay"></div>
+    <div class="accom-hero-content">
+      <div class="accom-hero-eyebrow">Aroma Tiblawan · Governor Generoso</div>
+      <h1>Find Your Perfect Stay</h1>
+      <p>From breezy beachfront cottages to a premium air-conditioned suite — every space is designed for rest, bonding, and celebration.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CHECK-IN / CHECK-OUT TIMES BANNER
+       Eye-catching, Ocean Blue, unmissable per brief
+  ══════════════════════════════════════════ -->
+  <div id="times-banner">
+    <div class="times-inner" id="times-inner"></div>
   </div>
-</div>
-<script src="data/resort-data.js"></script>
-<script src="scripts/components/navbar.js"></script>
-<script src="scripts/components/social-proof-toast.js"></script>
-<script src="scripts/main.js"></script>
-</body></html>
+
+  <!-- ══════════════════════════════════════════
+       STICKY FILTER BAR
+  ══════════════════════════════════════════ -->
+  <div id="filter-bar">
+    <div class="filter-bar-inner" id="filter-tabs"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ACCOMMODATION CARDS
+  ══════════════════════════════════════════ -->
+  <section id="accom-list">
+    <div class="accom-list-wrap" id="accom-list-wrap"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WHOLE RESORT EXCLUSIVE — DARK SECTION
+  ══════════════════════════════════════════ -->
+  <section id="whole-resort">
+    <div class="wr-bg"></div>
+    <div class="wr-content" id="wr-content"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       50% DOWNPAYMENT NOTICE
+  ══════════════════════════════════════════ -->
+  <div id="dp-notice">
+    <div class="dp-notice-inner">
+      <div class="dp-icon">💳</div>
+      <div class="dp-text">
+        <h3>50% Downpayment Secures Your Date</h3>
+        <p>Pay via GCash or Bank Transfer. No refunds — but rescheduling is available subject to availability. Send your proof of payment via Facebook Messenger to confirm.</p>
+      </div>
+      <a href="booking.html" class="btn btn-ghost">See Booking Details →</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       QUICK COMPARISON TABLE
+  ══════════════════════════════════════════ -->
+  <section id="comparison">
+    <div class="comp-inner">
+      <div class="comp-header">
+        <span class="section-label reveal">Quick Comparison</span>
+        <h2 class="section-title reveal reveal-delay-1">All Rates at a Glance</h2>
+        <p class="section-sub reveal reveal-delay-2">Every accommodation includes free use of the grilling area, kitchen, charcoal, and butane. Strictly NO corkage fees.</p>
+      </div>
+      <div class="table-scroll reveal">
+        <table class="comp-table" id="comp-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer id="footer"></footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data/resort-data.js"></script>
+  <script src="scripts/components/navbar.js"></script>
+  <script src="scripts/components/social-proof-toast.js"></script>
+  <script src="scripts/main.js"></script>
+
+  <script>
+    // ════════════════════════════════════════════════
+    // PAGE INIT
+    // ════════════════════════════════════════════════
+    function PageInit() {
+      renderTimesBanner();
+      renderFilterTabs();
+      renderAccomCards();
+      renderWholeResort();
+      renderComparisonTable();
+      initFilterLogic();
+      handleHashScroll();
+    }
+
+    // ── Times Banner ─────────────────────────────────
+    function renderTimesBanner() {
+      const { dayTour, overnight } = ResortData.times;
+      document.getElementById('times-inner').innerHTML = `
+
+        <div class="time-block">
+          <div class="time-block-icon-wrap">☀️</div>
+          <div class="time-block-info">
+            <div class="time-block-mode">Day Tour</div>
+            <div class="time-slots">
+              <div class="time-slot-item">
+                <span class="time-slot-label">Check-in</span>
+                <span class="time-slot-value">${dayTour.checkIn}</span>
+              </div>
+              <span class="time-arrow">→</span>
+              <div class="time-slot-item">
+                <span class="time-slot-label">Check-out</span>
+                <span class="time-slot-value">${dayTour.checkOut}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="time-block">
+          <div class="time-block-icon-wrap">🌙</div>
+          <div class="time-block-info">
+            <div class="time-block-mode">Overnight Stay</div>
+            <div class="time-slots">
+              <div class="time-slot-item">
+                <span class="time-slot-label">Check-in</span>
+                <span class="time-slot-value">${overnight.checkIn}</span>
+              </div>
+              <span class="time-arrow">→</span>
+              <div class="time-slot-item">
+                <span class="time-slot-label">Check-out</span>
+                <span class="time-slot-value">${overnight.checkOut}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      `;
+    }
+
+    // ── Filter Tabs ──────────────────────────────────
+    const FILTERS = [
+      { key: 'all',     label: '🌊  All',              count: 4 },
+      { key: 'shore',   label: '🌴  Shore Cottages',   count: 2 },
+      { key: 'top',     label: '🏔️  Top Cottage',      count: 1 },
+      { key: 'suite',   label: '❄️  Primary Suite',    count: 1 },
+    ];
+
+    let activeFilter = 'all';
+
+    function renderFilterTabs() {
+      document.getElementById('filter-tabs').innerHTML = FILTERS.map(f => `
+        <button class="filter-tab ${f.key === activeFilter ? 'active' : ''}"
+                data-filter="${f.key}">
+          ${f.label}
+        </button>
+      `).join('');
+    }
+
+    // ── Accommodation Cards ──────────────────────────
+    // Maps accommodation IDs to filter keys
+    const filterMap = {
+      'shore-cottage-1': 'shore',
+      'shore-cottage-2': 'shore',
+      'top-cottage':     'top',
+      'primary-suite':   'suite',
+    };
+
+    function renderAccomCards() {
+      const accoms = ResortData.accommodations.slice(0, 4); // exclude whole resort
+      const wrap   = document.getElementById('accom-list-wrap');
+
+      wrap.innerHTML = accoms.map((accom, i) => {
+        const isFlipped  = i % 2 !== 0;
+        const filterKey  = filterMap[accom.id];
+        const isPremium  = accom.id === 'primary-suite';
+        const shadowDir  = isFlipped
+          ? 'linear-gradient(to left, rgba(13,27,42,0) 55%, rgba(13,27,42,0.3) 100%)'
+          : 'linear-gradient(to right, rgba(13,27,42,0) 55%, rgba(13,27,42,0.3) 100%)';
+
+        return `
+          <div class="accom-card-full reveal ${isFlipped ? 'is-flipped' : ''}"
+               id="${accom.id}"
+               data-filter="${filterKey}">
+
+            <!-- ── IMAGE SIDE ── -->
+            <div class="full-card-img">
+              <img src="${accom.image}"
+                   alt="${accom.name} at Aroma Tiblawan Beach Resort"
+                   loading="lazy" />
+              <div class="full-card-img-shadow"
+                   style="position:absolute;inset:0;background:${shadowDir};"></div>
+
+              <div class="card-img-badges">
+                <span class="img-badge">${accom.badge}</span>
+                ${isPremium ? `<span class="img-badge teal">🌬️ Air-Conditioned</span>` : ''}
+                ${isPremium ? `<span class="img-badge">🚿 Private Bathroom</span>` : ''}
+              </div>
+
+              <div class="pax-pill">👥 Up to ${accom.capacity} pax</div>
+            </div>
+
+            <!-- ── CONTENT SIDE ── -->
+            <div class="full-card-body">
+
+              <div>
+                <div class="card-index-label">0${i + 1} — Accommodation</div>
+                <h2 class="card-title">${accom.name}</h2>
+                <p class="card-desc">${accom.description}</p>
+              </div>
+
+              <div class="card-tags">
+                ${accom.features.map(f => `<span class="card-tag">✓ ${f}</span>`).join('')}
+              </div>
+
+              <!-- RATE BLOCK — times in distinctive Ocean Blue -->
+              <div class="card-rate-block">
+                <div class="rate-cell">
+                  <span class="rate-cell-label">☀️ Day Tour</span>
+                  <span class="rate-cell-time">🕗 ${accom.dayTour.time}</span>
+                  <span class="rate-cell-price">${formatPHP(accom.dayTour.price)}<sub>/booking</sub></span>
+                </div>
+                <div class="rate-cell">
+                  <span class="rate-cell-label">🌙 Overnight</span>
+                  <span class="rate-cell-time">🕑 ${accom.overnight.time}</span>
+                  <span class="rate-cell-price">${formatPHP(accom.overnight.price)}<sub>/booking</sub></span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <a href="booking.html" class="btn btn-primary">Reserve This Space</a>
+                <span class="card-dp-note">💳 50% downpayment required</span>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── Whole Resort Section ─────────────────────────
+    function renderWholeResort() {
+      const wr = ResortData.accommodations[4];
+      document.getElementById('wr-content').innerHTML = `
+
+        <div class="wr-left reveal">
+          <span class="section-label">⭐ Exclusive Package</span>
+          <h2 class="wr-title">${wr.name}</h2>
+          <p class="wr-desc">${wr.description}</p>
+
+          <div class="wr-price-row">
+            <span class="wr-price">${formatPHP(wr.flatRate.price)}</span>
+            <span class="wr-price-note">flat rate · entire resort</span>
+          </div>
+
+          <div class="wr-actions">
+            <a href="booking.html" class="btn btn-primary">Inquire & Reserve</a>
+            <a href="booking.html" class="btn btn-ghost">Payment Details</a>
+          </div>
+        </div>
+
+        <div class="wr-features reveal reveal-delay-2">
+          ${[
+            ...wr.features,
+            'Karaoke Set available (+ PHP 1,500)',
+            'Function Stage available (+ PHP 1,000)',
+            'Free charcoal & butane — No corkage',
+            'Full kitchen & grilling area access',
+          ].map(f => `
+            <div class="wr-feat-item">
+              <span class="wr-feat-icon">✦</span>
+              <span class="wr-feat-text">${f}</span>
+            </div>
+          `).join('')}
+        </div>
+
+      `;
+    }
+
+    // ── Comparison Table ─────────────────────────────
+    function renderComparisonTable() {
+      const accoms = ResortData.accommodations;
+      const tbody  = accoms.map((a, i) => {
+        const isWhole   = a.id === 'whole-resort';
+        const isSuite   = a.id === 'primary-suite';
+        const rowClass  = isSuite ? 'highlight-row' : '';
+
+        if (isWhole) {
+          return `
+            <tr>
+              <td class="name-col">
+                ${a.name}
+                <small>Exclusive · Full Resort</small>
+              </td>
+              <td><span class="pax-tag">👥 ${a.capacity}</span></td>
+              <td class="time-col" colspan="2" style="color:var(--text-mid);font-weight:400;">— Flat Rate (any time) —</td>
+              <td class="price-col" colspan="2">${formatPHP(a.flatRate.price)}</td>
+              <td class="cta-col"><a href="booking.html">Inquire</a></td>
+            </tr>
+          `;
+        }
+
+        return `
+          <tr class="${rowClass}">
+            <td class="name-col">
+              ${a.name}
+              ${isSuite ? '<small style="color:var(--teal);font-weight:600;">✦ Premium · AC · Private Bath</small>' : ''}
+            </td>
+            <td><span class="pax-tag">👥 ${a.capacity}</span></td>
+            <td class="time-col">${a.dayTour.time}</td>
+            <td class="price-col">${formatPHP(a.dayTour.price)}</td>
+            <td class="time-col">${a.overnight.time}</td>
+            <td class="price-col">${formatPHP(a.overnight.price)}</td>
+            <td class="cta-col"><a href="booking.html">Book</a></td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('comp-table').innerHTML = `
+        <thead>
+          <tr>
+            <th>Accommodation</th>
+            <th>Capacity</th>
+            <th>Day Tour Hours ☀️</th>
+            <th>Day Rate</th>
+            <th>Overnight Hours 🌙</th>
+            <th>Overnight Rate</th>
+            <th style="text-align:center;">Reserve</th>
+          </tr>
+        </thead>
+        <tbody>${tbody}</tbody>
+      `;
+    }
+
+    // ── Filter Logic ─────────────────────────────────
+    function initFilterLogic() {
+      document.getElementById('filter-tabs').addEventListener('click', (e) => {
+        const tab = e.target.closest('.filter-tab');
+        if (!tab) return;
+
+        activeFilter = tab.dataset.filter;
+
+        document.querySelectorAll('.filter-tab').forEach(t =>
+          t.classList.toggle('active', t.dataset.filter === activeFilter)
+        );
+
+        document.querySelectorAll('.accom-card-full').forEach(card => {
+          const show = activeFilter === 'all' || card.dataset.filter === activeFilter;
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    }
+
+    // ── Smooth scroll to hash (from homepage links) ──
+    function handleHashScroll() {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return;
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Brief highlight ring
+          el.style.transition = 'box-shadow 0.3s';
+          el.style.boxShadow  = '0 0 0 3px var(--teal-light), var(--shadow-lg)';
+          setTimeout(() => { el.style.boxShadow = ''; }, 2200);
+        }
+      }, 700);
+    }
+  </script>
+
+</body>
+</html>

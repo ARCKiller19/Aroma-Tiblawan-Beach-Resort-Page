@@ -14,6 +14,32 @@
 
   <!-- Page-specific styles -->
   <style>
+    /* ── Force Hero text to white ── */
+    .hero-bisaya {
+      color: #ffffff !important;
+      opacity: 0.9; /* Optional: makes it slightly softer than the main title */
+    }
+
+    .hero-title, .hero-title em {
+      color: #ffffff !important;
+    }
+    /* ── Center the Hero Content ── */
+    .hero-content {
+      text-align: center !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centers the text blocks */
+      margin: 0 auto; /* Ensures the container itself stays centered */
+    }
+
+    /* ── Center the Hero Buttons ── */
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* Keeps buttons responsive on smaller screens */
+      gap: 1rem; /* Spacing between the two buttons */
+      width: 100%;
+    }
     /* ── Hero image background ── */
     .hero-bg {
       background-image: url('assets/images/Light/Beach 1.JPG');
