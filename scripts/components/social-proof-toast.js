@@ -193,7 +193,7 @@ const SocialProofToast = (() => {
   }
 
   // ──────────────────────────────────────────────────────────
-  // 5. THE SCHEDULER (Multi-Drop Loop)
+  // 5. THE SCHEDULER (Menu-Aware Loop)
   // ──────────────────────────────────────────────────────────
   function scheduleToasts() {
     const maxSlips = 3;             
@@ -202,6 +202,14 @@ const SocialProofToast = (() => {
 
     function dropNextSlip() {
       if (slipsShownThisPage >= maxSlips) return;
+
+      // SMART CHECK: Is the mobile menu currently open?
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu && mobileMenu.classList.contains('open')) {
+        // If the menu is open, don't drop! Wait 3 seconds and check again.
+        setTimeout(dropNextSlip, 3000);
+        return; 
+      }
 
       const randomSlip = generateRandomBooking();
       const wrapper = buildSlip(randomSlip);
@@ -214,6 +222,7 @@ const SocialProofToast = (() => {
       }
     }
 
+    // Wait 3.5 seconds after page load, then start the loop
     setTimeout(dropNextSlip, 3500); 
   }
 
