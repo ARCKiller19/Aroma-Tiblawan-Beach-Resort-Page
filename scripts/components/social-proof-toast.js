@@ -229,6 +229,17 @@ const SocialProofToast = (() => {
   function init() {
     injectStyles();
     scheduleToasts();
+
+    // ── THE KILL SWITCH ──
+    // If a slip is ALREADY on the screen when they click the menu, hide it instantly!
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('#nav-hamburger')) {
+        const activeSlip = document.getElementById('slip-wrapper');
+        if (activeSlip) {
+          activeSlip.style.display = 'none'; // Instantly removes it from view
+        }
+      }
+    });
   }
 
   return { init };
