@@ -574,6 +574,9 @@
       renderIntro();
       renderPillars();
       renderContextStats();
+      
+      // THE FIX: Tell the animation tracker to look for all these newly added items!
+      if (typeof initReveal === 'function') initReveal();
     }
 
     // ── Opening statement ────────────────────────────────────

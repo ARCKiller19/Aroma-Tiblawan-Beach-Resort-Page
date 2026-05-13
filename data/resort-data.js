@@ -40,18 +40,17 @@ const ResortData = {
   // ── Value Highlights (homepage quick badges) ──────────────
   highlights: [
     { icon: "🍖", label: "No Corkage Fees",        sub: "Bring your own food & drinks" },
-    { icon: "🔥", label: "Free Charcoal & Butane", sub: "Grilling included" },
+    { icon: "🍻", label: "Drinks & Essentials",    sub: "Available for purchase" },
     { icon: "🏠", label: "Fully Equipped Kitchen", sub: "Cook comfortably" },
     { icon: "📶", label: "Piso Wifi On-Site",      sub: "Stay connected" },
-    { icon: "🎤", label: "Karaoke Available",       sub: "PHP 1,500 rental" },
-    { icon: "🎪", label: "Function Stage Area",     sub: "PHP 1,000 rental" },
+    { icon: "🎤", label: "Karaoke Available",      sub: "PHP 1,500 rental" },
+    { icon: "🎪", label: "Function Stage Area",    sub: "PHP 1,000 rental" },
   ],
 
   // ── Amenities (full detail for index.html) ────────────────
   amenities: {
     complimentary: [
       { name: "Fully Equipped Kitchen & Grilling Area", icon: "🍳" },
-      { name: "Charcoal and Butane Provided Free of Charge", icon: "🔥" },
       { name: "Strictly NO Corkage Fees — Bring your own food and drinks", icon: "✅" },
     ],
     connectivity: [
@@ -60,6 +59,7 @@ const ResortData = {
     rentals: [
       { name: "Complete Karaoke Set",    price: "PHP 1,500", icon: "🎤" },
       { name: "Stage / Function Area",   price: "PHP 1,000", icon: "🎪" },
+      { name: "Beer, Soft Drinks, Water & Cigarettes", price: "Available on-site", icon: "🍻" },
     ],
   },
 
@@ -154,13 +154,13 @@ const ResortData = {
       name: "Exclusive Whole-Resort Rental",
       slug: "Whole Resort",
       badge: "Exclusive · Events",
-      description: "Secure the entire resort for private weddings, reunions, and company outings. Full privacy for your most memorable celebration.",
+      description: "Secure the resort for private weddings, reunions, and company outings. Includes 2 Shore Cottages and 1 Top Cottage. (Note: Primary Suite is NOT included).",
       capacity: 50,
       flatRate: {
         label: "Flat Rate",
         price: 10000,
       },
-      features: ["Entire resort exclusive access", "Weddings, reunions, outings", "Up to 50 pax", "All areas included"],
+      features: ["Exclusive access to main areas", "Weddings, reunions, outings", "Up to 50 pax", "Excludes Primary Suite"],
       image: "assets/images/Light/Beach 1.JPG",
       imageSlot: "resort-aerial-full",
     },
@@ -180,7 +180,7 @@ const ResortData = {
       title: "Resort Etiquette",
       icon: "🌊",
       items: [
-        "Please RESPECT OTHERS living near the area. Any LOUD NOISES should be AVOIDED after 1:00 AM (THIS INCLUDES THE KARAOKE).",
+        "Please RESPECT OTHERS living near the area. Any LOUD NOISES should be AVOIDED after 10:00 PM (THIS INCLUDES THE KARAOKE).",
         "MAINTAIN CLEANLINESS as much as possible.",
         "Furry friends are welcome! However, pets must be kept on a leash and owners must clean up after them.",
       ],

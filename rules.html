@@ -546,7 +546,7 @@
       </div>
       <div class="quick-fact reveal reveal-delay-4">
         <div class="quick-fact-icon">🎤</div>
-        <div class="quick-fact-value">1 AM</div>
+        <div class="quick-fact-value">10 PM</div>
         <div class="quick-fact-label">Noise / Karaoke Curfew</div>
       </div>
     </div>
@@ -579,13 +579,16 @@
       renderTimesCards();
       renderRulesMain();
       initSideNavScroll();
+      
+      // THE FIX: Tell the animation tracker to look for all these newly added items!
+      if (typeof initReveal === 'function') initReveal();
     }
 
     // ── Quick Pills (Hero right side) ────────────────────────
     function renderQuickPills() {
       const pills = [
         { icon: '🚫', text: 'NO Refund / NO Cancellation (Rescheduling is PERMITTED)' },
-        { icon: '🔇', text: 'Noise curfew strictly at 1:00 AM — karaoke included' },
+        { icon: '🔇', text: 'Noise curfew strictly at 10:00 PM — karaoke included' },
         { icon: '✅', text: '50% Downpayment to confirm your reservation' },
         { icon: '🐾', text: 'Pets welcome — must be leashed, owners must clean up' },
         { icon: '🧹', text: 'Resort double-checked for damages before checkout' },
@@ -671,8 +674,8 @@
             <div class="noise-callout">
               <span class="noise-callout-icon">🔇</span>
               <div class="noise-callout-text">
-                <h4>Noise Curfew: 1:00 AM</h4>
-                <p>We share this coastal community with our neighbors. Please keep noise — including karaoke — below this level after 1 AM. Daghang salamat!</p>
+                <h4>Noise Curfew: 10:00 PM</h4>
+                <p>We share this coastal community with our neighbors. Please keep noise — including karaoke — below this level after 10 PM. Daghang salamat!</p>
               </div>
             </div>
           `,
