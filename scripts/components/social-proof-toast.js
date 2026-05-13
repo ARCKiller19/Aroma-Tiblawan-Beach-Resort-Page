@@ -196,7 +196,7 @@ const SocialProofToast = (() => {
   // 5. THE SCHEDULER (Menu-Aware Loop)
   // ──────────────────────────────────────────────────────────
   function scheduleToasts() {
-    const maxSlips = 3;             
+    const maxSlips = 5;             
     const timeBetweenSlips = 18000; 
     let slipsShownThisPage = 0;
 
